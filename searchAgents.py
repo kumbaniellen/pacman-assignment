@@ -39,6 +39,7 @@ from game import Agent
 from game import Actions
 import util
 import time
+import copy
 import search
 
 class GoWestAgent(Agent):

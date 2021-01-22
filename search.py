@@ -4,7 +4,7 @@
 # educational purposes provided that (1) you do not distribute or publish
 # solutions, (2) you retain this notice, and (3) you provide clear
 # attribution to UC Berkeley, including a link to http://ai.berkeley.edu.
-# 
+#
 # Attribution Information: The Pacman AI projects were developed at UC Berkeley.
 # The core projects and autograders were primarily created by John DeNero
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
@@ -92,6 +92,7 @@ def depthFirstSearch(problem):
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
+
     return graph_search(problem, util.Queue())
 
 def uniformCostSearch(problem):
@@ -100,7 +101,7 @@ def uniformCostSearch(problem):
     def calculate_cost(path):
         return problem.getcostofactions([node[1] for node in path])
 
-    return graph_search(problem, util.PriorityQueueWithFunction(calculate_cost)
+        return graph_search(problem, util.PriorityQueueWithFunction(calculate_cost)
 
 def nullHeuristic(state, problem=None):
     """
@@ -111,8 +112,11 @@ def nullHeuristic(state, problem=None):
 
 def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+        def calculate_cost(path):
+            return problem.get_cost_of_actions([node[1] for node in path]) + \
+               heuristic(path[-1][0], problem)
+
+            return graph_search(problem, util.PriorityQueueWithFunction(calculate_cost))
 
 
 # Abbreviations
